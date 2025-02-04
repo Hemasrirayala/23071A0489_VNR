@@ -1,0 +1,108 @@
+//1. Check if a number is prime//
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(11))
+
+
+//2. Fibonacci sequence using recursion//
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        seq = fibonacci(n - 1)
+        seq.append(seq[-1] + seq[-2])
+        return seq
+
+print(fibonacci(10))
+
+
+//3. Find GCD and LCM//
+import math
+
+def gcd_lcm(a, b):
+    gcd = math.gcd(a, b)
+    lcm = (a * b) // gcd
+    return gcd, lcm
+
+print(gcd_lcm(12, 18))
+
+
+//4. Simple calculator//
+def calculator(a, b, op):
+    if op == '+':
+        return a + b
+    elif op == '-':
+        return a - b
+    elif op == '*':
+        return a * b
+    elif op == '/':
+        return a / b if b != 0 else "Cannot divide by zero"
+    else:
+        return "Invalid operator"
+
+print(calculator(10, 5, '+'))
+
+
+//5. Remove duplicates from a list//
+def remove_duplicates(lst):
+    return list(set(lst))
+
+print(remove_duplicates([1, 2, 2, 3, 4, 4, 5]))
+
+
+//6. Create a dictionary and print key-value pairs//
+my_dict = {"name": "Alice", "age": 25, "city": "New York", "job": "Engineer", "hobby": "Reading"}
+for key, value in my_dict.items():
+    print(f"{key}: {value}")
+
+
+//7. Perform basic matrix operations using NumPy//
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+print("Matrix Addition:\n", A + B)
+print("Matrix Multiplication:\n", A @ B)
+
+
+//8. Read CSV file and display first 5 rows using Pandas//
+import pandas as pd
+
+df = pd.read_csv("data.csv")  
+print(df.head())
+
+
+//9. Find the most common word in a text//
+from collections import Counter
+
+def most_common_word(text):
+    words = text.split()
+    word_counts = Counter(words)
+    return word_counts.most_common(1)[0]
+
+print(most_common_word("apple banana apple orange banana apple"))  
+
+
+//10. Generate a random password//
+import random
+import string
+
+def generate_password(length=12):
+    chars = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(chars) for _ in range(length))
+
+print(generate_password()) 
+
+
+
